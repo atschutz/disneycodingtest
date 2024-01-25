@@ -1,0 +1,26 @@
+{
+  "code": "200",
+  "data": [
+    {
+      "availId": "three",
+      "resourceId": "resourceThree",
+      "title": "titleThree",
+      "runtimeMs": "600000",
+      "elapsedMs": "300000"
+    },
+    {
+      "availId": "four",
+      "resourceId": "resourceFour",
+      "title": "titleFour",
+      "runtimeMs": "600000",
+      "elapsedMs": "300000"
+    },
+    {
+      "availId": "five",
+      "resourceId": "resourceFive",
+      "title": "titleFive",
+      "runtimeMs": "600000",
+      "elapsedMs": "300000"
+    }
+  ]
+}
