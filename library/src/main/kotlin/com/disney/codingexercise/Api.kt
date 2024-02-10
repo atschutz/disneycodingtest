@@ -1,5 +1,6 @@
 package com.disney.codingexercise
 
+import com.disney.codingexercise.model.downloadmetadata.DownloadMetadata
 import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
 

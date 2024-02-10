@@ -1,7 +1,6 @@
-package com.disney.codingexercise.model
+package com.disney.codingexercise.model.downloadmetadata
 
 import android.util.Log
-import com.disney.codingexercise.DownloadMetadata
 import org.jetbrains.annotations.VisibleForTesting
 
 class DownloadMetaDataRepository(

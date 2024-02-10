@@ -1,7 +1,5 @@
-package com.disney.codingexercise.model
+package com.disney.codingexercise.model.downloadmetadata
 
-import com.disney.codingexercise.DownloadMetadata
-import io.reactivex.rxjava3.core.Completable
 import io.reactivex.rxjava3.core.Single
 
 class DBManager {

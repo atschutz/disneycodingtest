@@ -1,5 +1,7 @@
 package com.disney.codingexercise
 
+import com.disney.codingexercise.model.downloadmetadata.DownloadMetadata
+import com.disney.codingexercise.model.downloadmetadata.ResponseData
 import com.squareup.moshi.Moshi
 import io.reactivex.rxjava3.core.Single
 import okhttp3.OkHttpClient

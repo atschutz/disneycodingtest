@@ -1,4 +1,4 @@
-package com.disney.codingexercise
+package com.disney.codingexercise.model.downloadmetadata
 
 import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)

@@ -1,6 +1,7 @@
-package com.disney.codingexercise
+package com.disney.codingexercise.downloadmetadata
 
-import com.disney.codingexercise.model.DownloadMetaDataRepository
+import com.disney.codingexercise.model.downloadmetadata.DownloadMetadata
+import com.disney.codingexercise.model.downloadmetadata.DownloadMetaDataRepository
 import junit.framework.TestCase.assertEquals
 import kotlinx.coroutines.test.runTest
 import org.junit.Before

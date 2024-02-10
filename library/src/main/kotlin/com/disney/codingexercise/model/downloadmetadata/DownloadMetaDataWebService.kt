@@ -1,4 +1,4 @@
-package com.disney.codingexercise.model
+package com.disney.codingexercise.model.downloadmetadata
 
 import com.disney.codingexercise.FETCH_DOWNLOAD_METADATA
 import com.disney.codingexercise.NetworkClient

@@ -1,6 +1,5 @@
-package com.disney.codingexercise.model
+package com.disney.codingexercise.model.downloadmetadata
 
-import com.disney.codingexercise.ResponseData
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

@@ -1,5 +1,6 @@
 package com.disney.codingexercise
 
+import com.disney.codingexercise.model.downloadmetadata.DownloadMetadata
 import org.junit.Before
 import org.junit.Test
 
