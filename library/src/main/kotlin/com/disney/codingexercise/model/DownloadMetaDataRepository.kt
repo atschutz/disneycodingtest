@@ -19,7 +19,11 @@ class DownloadMetaDataRepository(
         }
 
         // TODO - Error handling.
-        return (webService.getDownloadMetadata(notFoundIdList).body() ?: listOf()) + dbList
+        return (webService.getDownloadMetadata(notFoundIdList).body()?.data
+            // If we build DownloadMetadataApi correctly, we don't need to filter here.
+            ?.filter {
+                notFoundIdList.contains(it.availId)
+            } ?: listOf()) + dbList
     }
 
     suspend fun storeDownloadMetadata(metadata: DownloadMetadata) =
