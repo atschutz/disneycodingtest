@@ -11,7 +11,6 @@ class DownloadMetaDataWebService {
     init  {
         val mockWebServer = NetworkClient().startMockWebServer(FETCH_DOWNLOAD_METADATA)
 
-        // TODO - Gson shouldn't care about moshi annotation?
         val retrofit = Retrofit.Builder()
             .baseUrl(mockWebServer.url("/"))
             .addConverterFactory(GsonConverterFactory.create())

@@ -1,29 +1,32 @@
 package com.disney.codingexercise.model
 
+import android.util.Log
 import com.disney.codingexercise.DownloadMetadata
+import org.jetbrains.annotations.VisibleForTesting
 
 class DownloadMetaDataRepository(
-    private val dbManager: DBManager = DBManager(),
-    private val webService: DownloadMetaDataWebService = DownloadMetaDataWebService()
+    @VisibleForTesting val dbManager: DBManager = DBManager(),
+    private val webService: DownloadMetaDataWebService = DownloadMetaDataWebService(),
 ) {
     suspend fun getDownloadMetadata(ids: List<String>): List<DownloadMetadata> {
-        val dbList = mutableListOf<DownloadMetadata>()
-        val notFoundIdList = mutableListOf<String>()
+        val dbList = dbManager.getFromLocalDatabase(ids)
+        val notFoundIdList = ids.filterNot { id -> dbList.map { it.availId }.contains(id) }
 
-        ids.forEach { id ->
-            if (dbManager.existsInDatabase(id)) {
-                dbList += dbManager.getFromLocalDataBase(id).blockingGet()
-            } else {
-                notFoundIdList += id
-            }
-        }
+        val webResponse = webService.getDownloadMetadata(notFoundIdList)
 
-        // TODO - Error handling.
-        return (webService.getDownloadMetadata(notFoundIdList).body()?.data
+        return if (webResponse.isSuccessful) {
             // If we build DownloadMetadataApi correctly, we don't need to filter here.
-            ?.filter {
-                notFoundIdList.contains(it.availId)
-            } ?: listOf()) + dbList
+            val metadata =
+                webResponse.body()?.data?.filter {
+                    notFoundIdList.contains(it.availId)
+                } ?: listOf()
+
+            metadata + dbList
+        } else {
+            //TODO - Proper error handling here.
+            Log.e("Error fetching DownloadMetadata", "${webResponse.code()}")
+            listOf()
+        }
     }
 
     suspend fun storeDownloadMetadata(metadata: DownloadMetadata) =

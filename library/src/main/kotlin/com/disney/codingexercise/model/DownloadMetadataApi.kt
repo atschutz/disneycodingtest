@@ -1,6 +1,5 @@
 package com.disney.codingexercise.model
 
-import com.disney.codingexercise.DownloadMetadata
 import com.disney.codingexercise.ResponseData
 import retrofit2.Response
 import retrofit2.http.GET
@@ -9,6 +8,7 @@ import retrofit2.http.Query
 interface DownloadMetadataApi {
 
     // TODO - Use an actual GET url string to query `data` member of ResponseData directly.
+    // Would look something like this:
     /*
         @GET("/data")
         suspend fun getDownloadMetadata(

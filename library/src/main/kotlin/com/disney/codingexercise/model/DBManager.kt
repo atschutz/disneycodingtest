@@ -29,13 +29,21 @@ class DBManager {
         )
     }
 
-    // TODO - Coroutines.
-    fun existsInDatabase(id: String): Boolean =
+    // Suspends are here because if we were using a real database, the reads/writes would be async.
+    suspend fun existsInDatabase(id: String): Boolean =
         fakeDatabase.firstOrNull { it.availId == id } != null
 
-    fun getFromLocalDataBase(id: String): Single<DownloadMetadata> =
+    suspend fun existsInDatabase(metaData: DownloadMetadata): Boolean =
+        fakeDatabase.contains(metaData)
+
+    suspend fun getFromLocalDataBase(id: String): Single<DownloadMetadata> =
         Single.just(fakeDatabase.first { it.availId == id })
 
-    fun writeToDatabase(item: DownloadMetadata): Completable =
-        Completable.fromCallable { fakeDatabase.add(item) }
+    suspend fun getFromLocalDatabase(ids: List<String>): List<DownloadMetadata> =
+        fakeDatabase.filter { ids.contains(it.availId) }
+
+    suspend fun writeToDatabase(metaData: DownloadMetadata) {
+        fakeDatabase.firstOrNull { it.availId == metaData.availId }?.let { fakeDatabase.remove(it) }
+        fakeDatabase.add(metaData)
+    }
 }
