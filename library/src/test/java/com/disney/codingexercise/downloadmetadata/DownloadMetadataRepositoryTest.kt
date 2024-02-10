@@ -89,4 +89,9 @@ class DownloadMetadataRepositoryTest {
             !repository.dbManager.existsInDatabase(oldMetadata)
         )
     }
+
+    @Test
+    fun `verify report proper error code`() {
+        // TODO - Write this once we have proper error handling.
+    }
 }

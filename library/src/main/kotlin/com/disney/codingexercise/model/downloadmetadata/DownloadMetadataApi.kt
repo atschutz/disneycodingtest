@@ -5,7 +5,6 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface DownloadMetadataApi {
-
     // TODO - Use an actual GET url string to query `data` member of ResponseData directly.
     // Would look something like this:
     /*

@@ -13,7 +13,7 @@ class DBManager {
                 "resourceOne",
                 "titleOne",
                 1000L,
-                30L
+                30L,
             )
         )
         fakeDatabase.add(
@@ -22,7 +22,7 @@ class DBManager {
                 "resourceTwo",
                 "titleTwo",
                 1001L,
-                31L
+                31L,
             )
         )
     }
